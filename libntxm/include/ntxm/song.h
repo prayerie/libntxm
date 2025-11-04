@@ -217,9 +217,12 @@ class Song {
 		void setBpm(u8 _bpm);
 		
 		// Zapping
+		void zapInstrument(u8 inst);
 		void zapPatterns(void);
 		void zapInstruments(void);
-		
+		u8 zapUnusedInstruments(u8 *instList);
+
+
 		void clearCell(Cell *cell);
 		
 		// Muting
@@ -230,6 +233,7 @@ class Song {
 		
 		void killPatterns(void);
 		void killInstruments(void);
+		void killUnusedInstruments(void);
 		
 		u8 speed;
 		u8 bpm;
