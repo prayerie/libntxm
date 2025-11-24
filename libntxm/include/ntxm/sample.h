@@ -62,7 +62,6 @@ class Sample
 		~Sample();
 
 		void saveAsWav(char *filename);
-
 		void play(u8 note, u8 volume_, u8 channel  /* effects here */);
 		void bendNote(u8 note, u8 basenote, s16 _finetune, u8 channel);
 		void bendNoteDirect(s16 fine_step, u8 channel);
@@ -76,7 +75,7 @@ class Sample
 
 		u32 getSize(void); // Get the size in bytes
 		u32 getNSamples(void); // Get the numer of (PCM) samples
-
+		u32 getPlaybackFreq(u8 note_);
 		void *getData(void);
 		u32 getMaxAmplitude(u32 startsample, u32 endsample);
 		u32 getDynamicRange(void);
@@ -122,7 +121,7 @@ class Sample
 		void calcRelnoteAndFinetune(u32 freq);
 		u16 findClosestFreq(u32 freq);
 		bool convertStereoToMono(void);
-
+		
 		void fade(u32 startsample, u32 endsample, bool in);
 
 		bool setupPingPongLoop(void);
@@ -149,6 +148,6 @@ class Sample
 
 		Wav wav;
 		// Other formats may follow
-};
+	};
 
 #endif
